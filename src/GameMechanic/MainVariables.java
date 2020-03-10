@@ -1,9 +1,21 @@
 package GameMechanic;
 
+import Syntax.Classes.Class;
+
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 
 public abstract class MainVariables {
+    public static ArrayList<String> listOfLines = new ArrayList<>();
+    public static ArrayList<String> listOfWords = new ArrayList<>();
+
+    public static ArrayList<Class> listOfClasses = new ArrayList<>();
+
+    public static Class nowCompilation;
+    public static boolean isMistakeClass;
+    public static boolean isMistakeMethod;
+
     public static final String ANSI_RESET = "\u001B[0m";
     public static final String ANSI_BLACK = "\u001B[30m";
     public static final String ANSI_RED = "\u001B[31m";
@@ -25,8 +37,10 @@ public abstract class MainVariables {
 
     final static JFrame mainFrame = new JFrame();
 
+    final static JButton buttonRun = new JButton("Пуск");
+
     final static JTextArea textNumbers = new JTextArea(" 1   |\n 2   |\n 3   |");
-    final static JTextArea textCode = new JTextArea(" # Впишите сюда текст программы\n \n ");
+    public final static JTextArea textCode = new JTextArea(" # Впишите сюда текст программы\n \n ");
 
 
     final static int widthOfScreen = (int) Toolkit.getDefaultToolkit().getScreenSize().getWidth();

@@ -1,5 +1,8 @@
 package GameMechanic;
 
+import Compilation.Compilation;
+import Syntax.Classes.Command_Line;
+
 import javax.swing.*;
 
 import java.awt.*;
@@ -12,7 +15,7 @@ public class MainMechanic {
         mainFrame.setSize(1040, 500);
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         mainFrame.setLocationRelativeTo(null);
-        mainFrame.setResizable(true);
+        mainFrame.setResizable(false);
         mainFrame.setLayout(null);
         DPanel dPanel = new DPanel();
         setComponentOnFrame(mainFrame, dPanel, null, 0, 0, 2000, 2000);
@@ -21,13 +24,16 @@ public class MainMechanic {
         textNumbers.setOpaque(true);
         textNumbers.setBackground(new Color(0x535252));
         textNumbers.setForeground(new Color(0xE7D5D5D5, true));
-        setComponentOnFrame(mainFrame, textNumbers, f15, 0, 0, 40, 500);
+        setComponentOnFrame(mainFrame, textNumbers, f15, 0, 0, 40, 430);
 
         textCode.setCaretColor(new Color(0xFFFFFF));
         textCode.setOpaque(true);
         textCode.setBackground(new Color(0x121111));
         textCode.setForeground(new Color(0xE7FFFFFF, true));
-        setComponentOnFrame(mainFrame, textCode, f15, 40, 0, 1000, 500);
+        setComponentOnFrame(mainFrame, textCode, f15, 40, 0, 600, 430);
+
+        setComponentOnFrame(mainFrame, buttonRun, f20, 0, 430, 640, 35);
+        buttonRun.addActionListener(new Run());
 
         menuStart();
         visTrue(mainFrame);
@@ -37,11 +43,15 @@ public class MainMechanic {
         mainFrame.addMouseListener(new FrameMouseListener());
         mainFrame.addMouseWheelListener(new FrameMouseWheelListener());
         mainFrame.addMouseMotionListener(new FrameMouseMotionListener());
+
+        Command_Line command_line = new Command_Line();
+        listOfClasses.add(command_line);
     }
 
     void menuStart() {
         visTrue(textNumbers);
         visTrue(textCode);
+        visTrue(buttonRun);
     }
 
     private class FrameKeyListener implements KeyListener {
@@ -142,6 +152,13 @@ public class MainMechanic {
         @Override
         public void mouseMoved(MouseEvent e) {
 
+        }
+    }
+
+    private class Run implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            new Compilation().compilation();
         }
     }
 }
