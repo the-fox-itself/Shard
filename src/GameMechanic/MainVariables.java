@@ -40,7 +40,7 @@ public abstract class MainVariables {
     final static JButton buttonRun = new JButton("Пуск");
 
     final static JTextArea textNumbers = new JTextArea(" 1   |\n 2   |\n 3   |");
-    public final static JTextArea textCode = new JTextArea(" # Впишите сюда текст программы\n \n ");
+    public final static JTextArea textCode = new JTextArea(" # Впишите сюда текст вашей программы\n \n ");
 
 
     final static int widthOfScreen = (int) Toolkit.getDefaultToolkit().getScreenSize().getWidth();
